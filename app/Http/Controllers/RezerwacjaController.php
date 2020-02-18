@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Rezerwacja;
+use App\User;
+use App\StatusRezerwacji;
+use App\Samochod;
+use App\Ubezpieczenie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RezerwacjaController extends Controller
 {
@@ -23,13 +28,23 @@ class RezerwacjaController extends Controller
 
     public function create()
     {
-        return view('rezerwacja.create');
-    }
+            $ubezpieczenia = Ubezpieczenie::get();
+            $ubezpieczeniearray = array();
+            foreach ($ubezpieczenia as $ubezpieczenie) {
+                $ubezpieczeniearray[$ubezpieczenie->id] = $ubezpieczenie->nazwa;
+            }
+            return view('rezerwacja.create')->with('ubezpieczenia', $ubezpieczeniearray);
+        }
 
     public function store(Request $request)
     {
+        $ubezpieczenia = Ubezpieczenie::get();
+        $ubezpieczeniearray = array();
+        foreach($ubezpieczenia as $ubezpieczenie){
+            $ubezpieczeniearray[$ubezpieczenie->id] = $ubezpieczenie->nazwa;
+        }
         Rezerwacja::create($request->all());
-        return redirect()->route('rezerwacja.index');
+        return redirect()->route('rezerwacja.index')->with('ubezpieczenia', $ubezpieczeniearray);
     }
 
     public function edit(Rezerwacja $rezerwacja)

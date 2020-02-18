@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <div class="form-group" style="width:80%; margin:auto" align="center">
     <h1>Lista wszystkich marek</h1>
     <a class="btn btn-primary" href="{{route('marka.create')}}">Dodaj markę</a>
-    <table class="table table-hover">
+    <table class="table table-hover" style="margin-top:10px">
     <tr>
         <th></th>
         <th>Nazwa marki</th>
@@ -24,5 +24,5 @@
         </tr>
         @endforeach
     </table>
-
+    </div>
     @endsection

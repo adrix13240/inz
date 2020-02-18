@@ -15,7 +15,8 @@ class CreateTerminRezerwacjisTable extends Migration
     {
         Schema::create('termin_rezerwacjis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedbiginteger('idsamochod');
+            $table->biginteger('idsamochod')->unsigned();
+            $table->foreign('idsamochod')->references('id')->on('samochods');
             $table->date('od');
             $table->date('do');
             $table->timestamps();

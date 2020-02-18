@@ -12,27 +12,33 @@
     @endif
             <div class="form-group">
                 {!! Form::label('idmarka', "Marka:") !!}
-                {!! Form::text('idmarka', $samochod->idmarka, ['class'=>'form-control']) !!}
+                {!! Form::select('idmarka', $marki, null, ['id' => 'idmarka', 'class'=>'form-control custom-select']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('model', "Model:") !!}
-                {!! Form::text('model', $samochod->model, ['class'=>'form-control']) !!}
+                {!! Form::text('model', null, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('idsegment', "Segment:") !!}
-                {!! Form::text('idsegment', $samochod->idesgment, ['class'=>'form-control']) !!}
+                {!! Form::select('idsegment', $segmenty, null, ['id' => 'idsegment', 'class'=>'form-control custom-select']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('skrzynia', "Skrzynia biegów:") !!}
-                {!! Form::text('skrzynia', $samochod->skrzynia, ['class'=>'form-control']) !!}
+                {!! Form::select('skrzynia', array('Automatyczna' => 'Automatyczna', 'Manualna' => 'Manualna'), null, ['id' => 'idsegment', 'class'=>'form-control custom-select']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('kolor', "Kolor:") !!}
-                {!! Form::text('kolor', $samochod->kolor, ['class'=>'form-control']) !!}
+                {!! Form::select('kolor', array('Biały' => "Biały",
+                                                'Brązowy' => 'Brązowy',
+                                                'Czarny' => "Czarny",
+                                                'Czerwony' => 'Czerwony',
+                                                'Niebieski' => 'Niebieski',
+                                                'Srebrny' => 'Srebrny',
+                                                'Żółty' => 'Żółty'), null, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('tempomat', "Tempomat:") !!}
-                {!! Form::text('tempomat', $samochod->tempomat, ['class'=>'form-control']) !!}
+                {!! Form::checkbox('tempomat'); !!}
             </div>
     <div class="form-group">
         {!! Form::submit('Zapisz', ['class'=>'btn btn-primary ']) !!}

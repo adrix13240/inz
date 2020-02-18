@@ -3,7 +3,8 @@
 @section('title', 'Nowa marka')
 
 @section('content')
-        <h1>Nowa marka</h1>
+    <div class="form-group" style="width:80%; margin:auto" align="center" >
+        <h1>Dodaj markę</h1>
 
             {!! Form::open(['route' => 'marka.store']) !!}
 
@@ -24,5 +25,6 @@
             </div>
 
     {!! Form::close() !!}
+    </div>
 
 @endsection

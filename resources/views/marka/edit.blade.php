@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="form-group" style="width:80%; margin:auto" align="center">
             <h1>Edycja marki</h1>
 
     {!! Form::model($marka, ['route' => ['marka.update', $marka], 'method' => 'PUT']) !!}

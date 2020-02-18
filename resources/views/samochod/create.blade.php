@@ -26,17 +26,43 @@
                 {!! Form::select('idsegment', $segmenty, null, ['id' => 'idsegment', 'class'=>'form-control custom-select']) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('idoddzial', "Oddział firmy:") !!}
+                {!! Form::select('idoddzial', $oddzialy, null, ['id' => 'idoddzial', 'class'=>'form-control custom-select']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('skrzynia', "Skrzynia biegów:") !!}
-                {!! Form::text('skrzynia', null, ['class'=>'form-control']) !!}
+                {!! Form::select('skrzynia', array('Automatyczna' => 'Automatyczna', 'Manualna' => 'Manualna'), null, ['class'=>'form-control custom-select']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('kolor', "Kolor:") !!}
-                {!! Form::text('kolor', null, ['class'=>'form-control']) !!}
+                {!! Form::select('kolor', array('Biały' => "Biały",
+                                                'Brązowy' => 'Brązowy',
+                                                'Czarny' => "Czarny",
+                                                'Czerwony' => 'Czerwony',
+                                                'Niebieski' => 'Niebieski',
+                                                'Srebrny' => 'Srebrny',
+                                                'Żółty' => 'Żółty'), null, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('tempomat', "Tempomat:") !!}
-                {!! Form::text('tempomat', null, ['class'=>'form-control']) !!}
+                {!! Form::label('paliwo', "Paliwo:") !!}
+                {!! Form::select('paliwo', array('Benzyna' => 'Benzyna', 'Diesel' => 'Diesel'), null, ['class'=>'form-control custom-select']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('miejsca', "Liczba miejsc:") !!}
+                {!! Form::number('miejsca', 5, ['class'=>'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('zamek', "Centralny zamek:") !!}
+                {!! Form::checkbox('zamek', '1'); !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('klimatyzacja', "Klimatyzacja:") !!}
+                {!! Form::checkbox('klimatyzacja', '1'); !!}
+            </div>
+        <div class="form-group">
+            {!! Form::label('tempomat', "Tempomat:") !!}
+            {!! Form::checkbox('tempomat', '1'); !!}
+        </div>
 
             <div class="form-group">
                 {!! Form::submit('Zapisz', ['class'=>'btn btn-primary']) !!}
